@@ -8,24 +8,25 @@ int main() {
 	char ox_str[80];
 	cin >> T;
 	while (T--) {
+		i=0, j=0, sum = 0;
 		cin >> ox_str;
 		while (ox_str[i] != '\0') {
 			if (ox_str[i] == 'O') {
-				score = 1; o_count = 0;
-				while (ox_str[j++] == 'O') {
+				j = i;
+				score = 0; o_count = 0;
+				while (ox_str[j] == 'O') {
 					o_count++;
 					score += o_count;
+					j++;
 				}
+				sum += score;
 				i = j;
-				j = 0;
 			}
 			else {
 				i++;
 			}
-			sum += score;
 		}
-		cout << sum;
-		//Git bash Test
+		cout << sum << '\n';
 	}
 	return 0;
 }
